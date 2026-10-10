@@ -35,7 +35,7 @@ jobs:
         # Generate a perfectly structured clean Android Manifest
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
-        xmlns:android="http://android.com
+        <manifest xmlns:android="http://android.com"
             package="com.tsavo.videoconverter">
             <application
                 android:allowBackup="true"
@@ -80,3 +80,4 @@ jobs:
       with:
         name: TsavoVideoConverter-Debug-APK
         path: app/build/outputs/apk/debug/app-debug.apk
+        
