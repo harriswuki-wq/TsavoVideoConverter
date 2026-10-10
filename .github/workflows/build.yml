@@ -32,11 +32,10 @@ jobs:
         # Create standard directory structures
         mkdir -p app/src/main/java/com/tsavo/videoconverter
         
-        # Generate a perfectly structured clean Android Manifest
+        # Generate a perfectly structured clean Android Manifest without the conflicting package attribute
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
-        <manifest xmlns:android="http://android.com"
-            package="com.tsavo.videoconverter">
+        <manifest xmlns:android="http://android.com">
             <application
                 android:allowBackup="true"
                 android:label="TsavoVideoConverter"
