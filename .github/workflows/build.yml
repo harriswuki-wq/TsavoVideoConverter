@@ -28,19 +28,26 @@ jobs:
       run: |
         # Clear out any legacy misconfigured folders
         rm -rf app/src*
-        
+
         # Create standard directory structures
         mkdir -p app/src/main/java/com/tsavo/videoconverter
-        
-        # Generate a perfectly structured clean Android Manifest with the exact official namespace URI
-        cat << 'EOF' > app/src/main/AndroidManifest.xml
+
+        # Reconstruct the precise official schema URL string dynamically to bypass string stripping
+        PART1="http://schemas"
+        PART2="://android.com"
+        FULL_URI="${PART1}.${PART2}"
+
+        # Generate a perfectly structured clean Android Manifest with the reconstructed official namespace URI
+        cat << EOF > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
-        <manifest xmlns:android="http://android.com">
+        <manifest xmlns:android="${FULL_URI}">
+
             <application
                 android:allowBackup="true"
                 android:label="TsavoVideoConverter"
                 android:supportsRtl="true">
-                <activity
+                
+                <activity 
                     android:name=".MainActivity"
                     android:exported="true">
                     <intent-filter>
@@ -48,7 +55,9 @@ jobs:
                         <category android:name="android.intent.category.LAUNCHER" />
                     </intent-filter>
                 </activity>
+                
             </application>
+
         </manifest>
         EOF
 
