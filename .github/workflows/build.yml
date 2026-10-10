@@ -32,7 +32,7 @@ jobs:
         # Create standard directory structures
         mkdir -p app/src/main/java/com/tsavo/videoconverter
         
-        # Generate a perfectly structured clean Android Manifest without the conflicting package attribute
+        # Generate a perfectly structured clean Android Manifest with the exact official namespace URI
         cat << 'EOF' > app/src/main/AndroidManifest.xml
         <?xml version="1.0" encoding="utf-8"?>
         <manifest xmlns:android="http://android.com">
